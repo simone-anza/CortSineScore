@@ -43,9 +43,7 @@ Values after noon (e.g., 1400, 2200) receive negative weights
 Interpretation:
 
 Positive CSS → Morning-aligned rhythm
-
 Negative CSS → Evening-shifted or misaligned
-
 Zero CSS → Flat or blunted pattern
 
 🧪 Example
@@ -80,4 +78,4 @@ CortSineScore is free to use for academic and research purposes.
 
 Commercial use is not permitted without written permission.
 
-Contact: simone.anza@example.com
+Contact: simoneanza@gmail.com
