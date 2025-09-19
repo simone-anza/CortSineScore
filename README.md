@@ -1,57 +1,56 @@
 # CortSineScore
-R package to compute a single scalar metric for diurnal cortisol cycle analysis — the Cortisol Sine Score (CSS). Model-free, robust, and ideal for regression, classification, and biomarker research.
 
-
----
-output: github_document
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-CortSineScore
-CortSineScore is an R package to compute the Cortisol Sine Score (CSS) — a simple, scalar index designed to summarize the daily cortisol cycle using time-of-day salivary cortisol measurements.
-
-Unlike traditional rhythm analysis models (e.g., Cosinor, JTK_CYCLE), CSS provides a model-free, single-value output ideal for regression, classification, and integration in biological studies.
-
+A package to compute a single scalar metric for diurnal cortisol cycle analysis — the Cortisol Sine Score (CSS).
+Model-free, robust, and ideal for regression, classification, and biomarker research.
+---------
 🚀 Installation
-To install the latest development version from GitHub:
 
-r
-Copy code
-# install.packages("remotes")
-remotes::install_github("yourusername/CortSineScore")
-🔁 Replace "yourusername" with your actual GitHub username.
+You can install the development version from GitHub using:
 
-🧠 How It Works
-The Cortisol Sine Score is calculated as:
+install.packages("remotes")
 
-Where:
+remotes::install_github("simone-anza/CortSineScore")
 
-Time is extracted from column names (e.g., time_0600, time_1400)
+-------------------------
+# 🧠 What is the Cortisol Sine Score?
 
-Values before noon (e.g., 0200, 0600) receive positive sine weights
+The Cortisol Sine Score (CSS) is a simple scalar index calculated as:
 
-Values after noon (e.g., 1400, 2200) receive negative weights
+CSS = ∑ cortisol_i × sin(2π × time_i / 24)
 
-Interpretation:
+-------------------------
+# Where:
+time_i is extracted from column names like time_0600, time_1400, etc.
 
-Positive CSS → Morning-aligned rhythm
-Negative CSS → Evening-shifted or misaligned
-Zero CSS → Flat or blunted pattern
+The sine function gives positive weights to morning timepoints and negative weights to evening timepoints.
 
-🧪 Example
-{r
-Copy code
+You only need a minimum of 4 timepoints (2 before and 2 after 12:00).
+----------------------------------------
+✅ Interpretation
+
+Positive CSS → Morning-aligned cortisol profile
+
+Negative CSS → Evening-shifted or inverted profile
+
+Near 0 CSS → Blunted or flat profile
+--------------------------------
+💡 Why use CSS?
+
+Feature	Description
+
+✅ Model-free	No curve fitting, no assumptions about waveform shape
+
+✅ Scalar output	Perfect for regression, classification, clustering
+
+✅ Flexible	Works with any number of cortisol timepoints
+
+✅ Lightweight	One-line computation from raw values
+
+---------------------------------
+🔬 Example
+
 library(CortSineScore)
 
-# Create example dataset
 df <- tibble::tibble(
   Volunteer.ID = c("S1", "S2"),
   time_0200 = c(2.1, 1.3),
@@ -62,20 +61,28 @@ df <- tibble::tibble(
   time_2200 = c(0.5, 0.6)
 )
 
-# Compute CSS
 compute_css(df)
+
+
+You’ll get a single column cortisol_sin_score per subject — summarizing their 24h profile.
+
 📦 Features
-✅ Works with datasets with 4+ timepoints (2 before and 2 after noon)
 
-✅ No model fitting required
+🔹 Extracts time from column names (e.g., time_0600)
 
-✅ Extracts time info from column names like time_0200
+🔹 Works with as few as 4 timepoints (2 before and 2 after noon)
 
-✅ Verbose mode returns timepoint-level contributions
+🔹 Optional verbose = TRUE returns per-timepoint contributions
 
-📜 License
-CortSineScore is free to use for academic and research purposes.
+🔹 No dependence on waveform shape — no model assumptions
 
-Commercial use is not permitted without written permission.
+🔹 Easily integrates into downstream analysis pipelines
+------------------
+# 📜 License
 
+CortSineScore is free for academic and research use.
+
+🔒 Commercial use is not permitted without written permission.
+
+To request a license or for questions, contact:
 Contact: simoneanza@gmail.com
