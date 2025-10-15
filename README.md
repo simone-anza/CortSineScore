@@ -82,7 +82,11 @@ You’ll get a single column cortisol_sin_score per subject — summarizing thei
 
 CortSineScore is free for academic and research use.
 
-🔒 Commercial use is not permitted without written permission.
-
-To request a license or for questions, contact:
+For questions, contact:
 Contact: simoneanza@gmail.com
+
+📖 Citation
+If you use CortSineScore in your research, please cite:
+Anzà S, Rosa BA, Herzberg MP, et al. (2025). Simplifying Daily Cortisol 
+Cycle Analysis: Validation and Benchmarking of the Cortisol Sine Score 
+Against Cosinor and JTK_CYCLE models. Methods. [In press]
