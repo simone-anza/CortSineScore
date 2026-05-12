@@ -89,4 +89,5 @@ Contact: simoneanza@gmail.com
 If you use CortSineScore in your research, please cite:
 Anzà S, Rosa BA, Herzberg MP, et al. (2025). Simplifying Daily Cortisol 
 Cycle Analysis: Validation and Benchmarking of the Cortisol Sine Score 
-Against Cosinor and JTK_CYCLE models. Methods. [In press]
+Against Cosinor and JTK_CYCLE models.
+https://www.medrxiv.org/content/10.64898/2026.02.23.26346831v1
